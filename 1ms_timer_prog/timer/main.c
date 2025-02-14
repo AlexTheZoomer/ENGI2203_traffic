@@ -14,7 +14,7 @@ void setupTimer0() {
 }
 
 ISR(TIMER0_COMPA_vect) {
-	PORTD ^= (1 << PD6); // Toggle LED on PB0
+	PORTD ^= (1 << PD6); // Toggle Oscilloscope on PD6
 }
 
 int main() {
