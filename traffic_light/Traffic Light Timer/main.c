@@ -1,7 +1,7 @@
 // Created 2025-02-10
 // Authors: AD, LM
 // Traffic Light Design Lab
-// Timer Code
+// Traffic Light Code
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
