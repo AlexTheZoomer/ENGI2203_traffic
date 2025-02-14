@@ -23,6 +23,6 @@ int main() {
 	setupTimer0();
 
 	while(1) {
-		// Do nothing, the interrupt handles the LED toggle!
+		// Do nothing, the interrupt handles the oscilloscope toggle!
 	}
 }
