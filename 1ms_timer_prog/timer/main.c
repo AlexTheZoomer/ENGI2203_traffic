@@ -31,7 +31,7 @@ void setupTimer0() {
 
 ISR(TIMER0_COMPA_vect) {
 	main_timer++;  // Main function timer, everything relies on this
-	PORTD ^= (1 << PD6); // Toggle Oscilloscope on PD6 (ONLY NEEDED FOR OSCILLIOSCOPE READING DEBUG PIN)
+	PORTD ^= (1 << PD6); // Toggle Oscilloscope on PD6 (ONLY NEEDED FOR TIMER OSCILLIOSCOPE READING DEBUG PIN)
 }
 
 int main(void) {
@@ -40,13 +40,8 @@ int main(void) {
 	DDRD |= (1 << grn) | (1 << yellow) | (1 << red) | (1 << ped_light);
 	DDRD &= ~(1 << reset_action);  // Button as input
 	PORTD |= (1 << reset_action);  // Enable pull-up
-
-	// Setup Timer0
-	TCCR0A = (1 << WGM01);
-	TCCR0B = (1 << CS01) | (1 << CS00);
-	OCR0A = 125;
-	TIMSK0 |= (1 << OCIE0A);
-	sei();
+	
+	setupTimer0();
 
 	uint32_t start_time = 0;
 
